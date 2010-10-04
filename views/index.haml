@@ -1,0 +1,10 @@
+%h1
+  Current iteration
+
+- @stories.each do |name, project|
+  %b
+    #{name}
+  %br
+  - project.each do |s|
+    #{s.name}
+    %br
