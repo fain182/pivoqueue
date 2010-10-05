@@ -1,0 +1,7 @@
+body {font-size:14px; font-family: arial, sans-serif;}
+h1 {font-size: 200%; font-variant: small-caps}
+#container { width: 400px; margin: 20px auto;}
+.story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee}
+span.project { margin: 0; background-color:#006633; border: 1px solid #006633; color:white; padding: 2px; font-size: 10px }
+.text {margin-left: 25px;}
+span.handle { display:block; cursor: move;float:left; background: white; border: 1px solid #777; width: 16px; height: 16px; vertical-align: baseline;}

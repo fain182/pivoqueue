@@ -1,10 +1,11 @@
 %h1
   Current iteration
 
-- @stories.each do |name, project|
-  %b
-    #{name}
-  %br
-  - project.each do |s|
-    #{s.name}
-    %br
+%ul#story-list
+  - @stories.each do |name, project|
+    - project.each do |s|
+      %li.story
+        %span.handle 
+        .text
+          %span.project #{name}
+          %span.name #{s.name}
