@@ -1,7 +1,10 @@
 body {font-size:14px; font-family: arial, sans-serif;}
 h1 {font-size: 200%; font-variant: small-caps}
 #container { width: 400px; margin: 20px auto;}
-.story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee}
-span.project { margin: 0; background-color:#006633; border: 1px solid #006633; color:white; padding: 2px; font-size: 10px }
+.story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee; position: relative;}
 .text {margin-left: 25px;}
-span.handle { display:block; cursor: move;float:left; background: white; border: 1px solid #777; width: 16px; height: 16px; vertical-align: baseline;}
+span.project { margin: 0; font-weight: bold; padding: 2px; font-size: 12px;  }
+span.handle { display:block; height: 36px; margin-top : 2px; width: 20px; cursor: move; background:#999; float:left;}
+span.labels { color: #006633}
+span.estimate { border: 1px solid #ddd; background: white; padding: 0 3px;}
+span.description { font-size: 10px;}
