@@ -7,6 +7,7 @@ h1 {font-size: 200%; font-variant: small-caps}
 .story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee; position: relative;}
 .text {margin-left: 25px;}
 span.project { margin: 0; font-weight: bold; padding: 2px; font-size: 12px;  }
+span.id { font-weight: normal; font-size: 10px; }
 span.handle { display:block; height: 36px; margin-top : 2px; width: 20px; cursor: move; background:#999; float:left;}
 span.labels { color: #006633}
 span.estimate { border: 1px solid #ddd; background: white; padding: 0 3px;}

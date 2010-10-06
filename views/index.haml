@@ -14,7 +14,9 @@
           - if s.estimate  
             %span.estimate #{s.estimate} 
           %br/
-          %span.project #{name}
+          %span.project
+            #{name}
+            %span.id #{s.id}
           - if s.description != '' 
             %br/
             %span.description #{s.description}
