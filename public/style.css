@@ -1,14 +1,16 @@
 body {font-size:14px; font-family: arial, sans-serif;}
-h1 {font-size: 200%; font-variant: small-caps}
+h1 {font-size: 200%; font-variant: small-caps; margin-left: 160px;}
 
-#container { width: 400px; margin: 20px auto;}
+#container { width: 550px; margin: 20px auto;}
 #stats { float:right; }
 
-.story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee; position: relative;}
+.story { margin: 5px 0 5px 155px ; line-height: 20px; padding: 5px;background: #eee; }
 .text {margin-left: 25px;}
-span.project { margin: 0; font-weight: bold; padding: 2px; font-size: 12px;  }
+.panel { margin: 0; font-weight: bold; padding: 2px; height: 100%; text-align: right; font-size: 12px; float:left; width: 150px; }
+.details { display:none; }
 span.id { font-weight: normal; font-size: 10px; }
-span.handle { display:block; height: 36px; margin-top : 2px; width: 20px; cursor: move; background:#999; float:left;}
+span.handle { display:block; height: 18px; margin-top : 2px; width: 20px; cursor: move; background:#999; float:left;}
 span.labels { color: #006633}
 span.estimate { border: 1px solid #ddd; background: white; padding: 0 3px;}
 span.description { font-size: 10px;}
+

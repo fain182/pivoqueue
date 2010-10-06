@@ -5,18 +5,20 @@
 %ul#story-list
   - @stories.each do |name, project|
     - project.each do |s|
-      %li.story
-        %span.handle 
-        .text
-          - if s.labels 
-            %span.labels #{s.labels}
-          %span.name #{s.name}
-          - if s.estimate  
-            %span.estimate #{s.estimate} 
+      %li
+        .panel
+          #{name}
           %br/
-          %span.project
-            #{name}
-            %span.id #{s.id}
-          - if s.description != '' 
-            %br/
-            %span.description #{s.description}
+          %span.id #{s.id}
+        .story
+          %span.handle 
+          .text
+            - if s.labels 
+              %span.labels #{s.labels}
+            %span.name #{s.name}
+            - if s.estimate  
+              %span.estimate #{s.estimate} 
+          .details
+            - if s.description != '' 
+              %br/
+              %span.description #{s.description}
