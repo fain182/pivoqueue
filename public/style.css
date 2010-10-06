@@ -1,6 +1,9 @@
 body {font-size:14px; font-family: arial, sans-serif;}
 h1 {font-size: 200%; font-variant: small-caps}
+
 #container { width: 400px; margin: 20px auto;}
+#stats { float:right; }
+
 .story { margin: 5px 0; line-height: 20px; padding: 5px;background: #eee; position: relative;}
 .text {margin-left: 25px;}
 span.project { margin: 0; font-weight: bold; padding: 2px; font-size: 12px;  }
