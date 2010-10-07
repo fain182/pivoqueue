@@ -22,3 +22,7 @@ get '/' do
   end
   haml :index
 end
+
+get '/done/:id' do |id|
+  id
+end
