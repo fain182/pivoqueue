@@ -12,7 +12,7 @@
           %span.id #{s.id}
         .story
           %span.handle 
-          %input.done{:type=>'submit', :value=>'Done', :name=>s.id} 
+          %input.done{:type=>'submit', :value=>'Done', :name=>name+'^^'+s.id.to_s} 
           .text
             - if s.labels 
               %span.labels #{s.labels}

@@ -23,6 +23,11 @@ get '/' do
   haml :index
 end
 
-get '/done/:id' do |id|
+get '/done/:id' do |arg|
+  project, id = arg.split('^^')
+  projects = PivotalTracker::Project.all
+  project = projects.detect{|p| p.name == project}
+  story = project.stories.find(id.to_i)
+  story.update({'current_state' => 'accepted'})
   id
 end
