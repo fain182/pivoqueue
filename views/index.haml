@@ -19,7 +19,8 @@
             %span.name #{s.name}
             - if s.estimate  
               %span.estimate #{s.estimate} 
-          .details
             - if s.description != '' 
-              %br/
-              %span.description #{s.description}
+              .details
+                %span.description 
+                  :markdown
+                    #{s.description}
