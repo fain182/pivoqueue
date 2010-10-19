@@ -7,7 +7,8 @@
     - project.each do |s|
       %li{:id => s.id}
         .panel
-          #{name}
+          :escaped
+            #{name}
           %br/
           %span.id #{s.id}
         .story
@@ -15,12 +16,16 @@
           %input.done{:type=>'submit', :value=>'Done', :name=>name+'^^'+s.id.to_s} 
           .text
             - if s.labels 
-              %span.labels #{s.labels}
-            %span.name #{s.name}
+              %span.labels
+                :escaped
+                  #{s.labels}
+            %span.name
+              :escaped
+                #{s.name}
             - if s.estimate  
               %span.estimate #{s.estimate} 
             - if s.description != '' 
               .details
                 %span.description 
-                  :markdown
+                  :escaped
                     #{s.description}
