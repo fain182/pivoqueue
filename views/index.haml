@@ -5,14 +5,14 @@
 %ul#story-list
   - @stories.each do |name, project|
     - project.each do |s|
-      %li{:id => s.id}
+      %li{:id => s.id, :class=> s.story_type}
         .panel
           :escaped
             #{name}
           %br/
           %span.id #{s.id}
         .story
-          %span.handle 
+          %span.story_type 
           %input.done{:type=>'submit', :value=>'Done', :name=>name+'^^'+s.id.to_s} 
           .text
             - if s.labels 
