@@ -6,6 +6,10 @@ require 'pivotal-tracker'
 
 PivotalTracker::Client.token = IO.read('./token')
 
+before do
+  content_type :html, 'charset' => 'utf-8'
+end
+
 get '/' do
   projects = PivotalTracker::Project.all
   @stories = {}
