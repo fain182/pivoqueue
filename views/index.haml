@@ -5,7 +5,7 @@
 %ul#story-list
   - @stories.each do |name, project|
     - project.each do |s|
-      %li{:id => s.id, :class=> s.story_type}
+      %li{:id => 'li_'+s.id.to_s, :class=> s.story_type}
         .panel
           :escaped
             #{name}
