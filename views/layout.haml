@@ -13,7 +13,7 @@
         $("#story-list").sortable({ handle: '.story', axis: 'y' });
         $(".done").click(function(){
           $(this).hide();
-          $(this).parent().css('background', 'white');
+          $(this).parent().animate({backgroundColor: '#fef7db'}, 'slow');
           $(this).parent().find(".story_type").css('background-image', 'url(spinner.gif)');
           $.get("done/"+$(this).attr("name"), function (data){
             $('#li_'+data).find(".story_type").remove();
