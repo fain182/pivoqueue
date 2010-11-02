@@ -24,8 +24,20 @@
                 #{s.name}
             - if s.estimate  
               %span.estimate #{s.estimate} 
-            - if s.description != '' 
+            - if s.description != '' || s.tasks.all.length >0
               .details
-                %span.description 
-                  :escaped
-                    #{s.description}
+                - if s.description != ''
+                  %span.description
+                    %h4 Description
+                    :escaped
+                      #{s.description}
+                    %br/
+                - if s.tasks.all.length >0
+                  %span.tasks
+                    %h4 Tasks
+                    %ol
+                      - s.tasks.all.each do |t|
+                        %li
+                          :escaped
+                            #{t.description}
+                %br{:style=>'clear:both;'}/
