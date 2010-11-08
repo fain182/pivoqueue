@@ -24,7 +24,7 @@
                 #{s.name}
             - if s.estimate  
               %span.estimate #{s.estimate} 
-            - if s.description != '' || s.tasks.all.length >0
+            - if s.description != '' || s.has_tasks?
               .details
                 - if s.description != ''
                   %span.description
@@ -32,7 +32,7 @@
                     :escaped
                       #{s.description}
                     %br/
-                - if s.tasks.all.length >0
+                - if s.has_tasks?
                   %span.tasks
                     %h4 Tasks
                     %ol

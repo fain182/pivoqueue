@@ -7,6 +7,12 @@ require 'pivotal-tracker'
 
 PivotalTracker::Client.token = IO.read('./token')
 
+class PivotalTracker::Story
+  def has_tasks?
+    self.tasks.all.length >0 rescue false
+  end
+end
+
 before do
   content_type :html, 'charset' => 'utf-8'
 end
