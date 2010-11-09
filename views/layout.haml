@@ -8,24 +8,8 @@
     %meta{ 'http-equiv'=>"Content-Type", :content=>"text/html; charset=UTF-8"}/
     %script{:type=>'text/javascript', :src =>'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'}
     %script{:type=>'text/javascript', :src =>'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'}
-    :javascript
-      $(document).ready(function() {
-        $("#story-list").sortable({ handle: '.story', axis: 'y' });
-        $(".done").click(function(){
-          $(this).hide();
-          $(this).parent().animate({backgroundColor: '#fef7db'}, 'slow');
-          $(this).parent().find(".story_type").css('background-image', 'url(spinner.gif)');
-          $.get("done/"+$(this).attr("name"), function (data){
-            $('#li_'+data).find(".story_type").remove();
-            $('#li_'+data).slideUp('slow', function(){
-              $('#li_'+data).remove();
-            });
-          });
-        });
-        //preload image
-        var cacheImage = document.createElement('img');
-        cacheImage.src = 'spinner.gif';
-      });
+
+    %script{:type=>'text/javascript', :src =>'stories.js'}
   %body
     #container
       = yield
