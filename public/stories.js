@@ -3,6 +3,10 @@ $(document).ready(function() {
     // drag and drop for stories
     $("#story-list").sortable({ handle: '.story', axis: 'y' });
 
+    //story count
+    var count = $("#story-list").find('li').length;
+    $("#stats").prepend(count+' ');
+
     //complete stories on click
     $(".done").click(function(){
         $(this).hide();
