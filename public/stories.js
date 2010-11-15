@@ -4,11 +4,15 @@ $(document).ready(function() {
     $("#story-list").sortable({ handle: '.story', axis: 'y' });
 
     //story count
-    var count = $("#story-list").find('li').length;
-    $("#stats").prepend(count+' ');
+    function update_story_count() {
+        var count = $("#story-list").find('li').length;
+        $("#story-count").html(count+' stories');
+    }
+
+    update_story_count();
 
     //complete stories on click
-    $(".done").click(function(){
+    $(".done").click(function() {
         $(this).hide();
         $(this).parent().animate({backgroundColor: '#fef7db'}, 'slow');
         $(this).parent().find(".story_type").css('background-image', 'url(spinner.gif)');
@@ -16,6 +20,7 @@ $(document).ready(function() {
             $('#li_'+data).find(".story_type").remove();
             $('#li_'+data).slideUp('slow', function(){
                 $('#li_'+data).remove();
+                update_story_count();
             });
         });
     });

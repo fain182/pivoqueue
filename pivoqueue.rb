@@ -11,6 +11,9 @@ class PivotalTracker::Story
   def has_tasks?
     self.tasks.all.length >0 rescue false
   end
+  def is_complete?
+    self.current_state == 'accepted'
+  end
 end
 
 before do
@@ -24,7 +27,7 @@ get '/' do
     @stories[project.name] = []
     iteration = PivotalTracker::Iteration.current(project)
     iteration.stories.each do |story|
-      unless story.current_state == "accepted"
+      unless story.is_complete?
         @stories[project.name].push story
       end
     end
