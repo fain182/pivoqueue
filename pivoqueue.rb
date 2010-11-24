@@ -23,9 +23,13 @@ end
 
 get '/' do
   @stories = {}
+  @empty_projects = []
   @projects.each do |project|
     @stories[project.name] = []
     iteration = PivotalTracker::Iteration.current(project)
+    if iteration.stories.empty? 
+      @empty_projects.push project.name
+    end
     iteration.stories.each do |story|
       unless story.is_complete?
         @stories[project.name].push story

@@ -41,3 +41,10 @@
                           :escaped
                             #{t.description}
                 %br{:style=>'clear:both;'}/
+- unless @empty_projects.empty?
+  #footnotes
+    These projects has no stories for current iteration:
+    %br/
+    :escaped
+      #{@empty_projects.join ', '}
+    %br/

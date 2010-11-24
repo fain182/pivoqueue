@@ -4,6 +4,7 @@ h4 {font-weight: bold; font-variant: uppercase; padding-left: -6px;}
 
 #container { width: 550px; margin: 20px auto;}
 #stats { float:right; }
+#footnotes { margin-left: 160px; font-size: 70%}
 
 .story { margin: 5px 0 5px 155px ; line-height: 20px; padding: 5px;background: #eee; cursor: move; }
 .done {display:none;}
