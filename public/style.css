@@ -1,6 +1,7 @@
 body {font-size:14px; font-family: arial, sans-serif;}
 h1 {font-size: 200%; font-variant: small-caps; margin-left: 160px;}
 h4 {font-weight: bold; font-variant: uppercase; padding-left: -6px;}
+del { color: #777}
 
 #container { width: 550px; margin: 20px auto;}
 #stats { float:right; }

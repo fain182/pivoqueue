@@ -38,8 +38,13 @@
                     %ol
                       - s.tasks.all.each do |t|
                         %li
-                          :escaped
-                            #{t.description}
+                          - if t.complete
+                            %del
+                              :escaped
+                                #{t.description}
+                          - else
+                            :escaped
+                              #{t.description}
                 %br{:style=>'clear:both;'}/
 - unless @empty_projects.empty?
   #footnotes
