@@ -5,7 +5,7 @@ $(document).ready(function() {
 
     //story count
     function update_story_count() {
-        var count = $("#story-list").find('li').length;
+        var count = $("#story-list").children().length;
         $("#story-count").html(count+' stories');
     }
 
