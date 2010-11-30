@@ -1,15 +1,19 @@
 $(document).ready(function() {
 
-    // drag and drop for stories
-    $("#story-list").sortable({ handle: '.story', axis: 'y' });
+    $("#story-list").sortable({
+        handle: '.story',
+        axis: 'y'
+    });
 
-    //story count
     function update_story_count() {
         var count = $("#story-list").children().length;
         $("#story-count").html(count+' stories');
     }
 
-    update_story_count();
+   function preload_spinner_image() {
+        var cacheImage = document.createElement('img');
+        cacheImage.src = 'spinner.gif';
+    }
 
     //complete stories on click
     $(".done").click(function() {
@@ -25,8 +29,8 @@ $(document).ready(function() {
         });
     });
 
-    //preload spinner image
-    var cacheImage = document.createElement('img');
-    cacheImage.src = 'spinner.gif';
+    //ON START
+    update_story_count();
+    preload_spinner_image();
 });
 
