@@ -14,10 +14,10 @@ del { color: #777}
 .details { display:none; }
 span.id { font-weight: normal; font-size: 10px; }
 span.story_type { display:block; height: 18px; margin-top : 2px; width: 18px; float:left; background-repeat:no-repeat}
-li.feature span.story_type { background-image:url(feature_icon.png); }
-li.bug span.story_type { background-image:url(bug_icon.png); }
-li.chore span.story_type { background-image:url(chore_icon.png); }
-li.release span.story_type { background-image:url(release_icon.png); }
+li.feature span.story_type { background-image:url(/feature_icon.png); }
+li.bug span.story_type { background-image:url(/bug_icon.png); }
+li.chore span.story_type { background-image:url(/chore_icon.png); }
+li.release span.story_type { background-image:url(/release_icon.png); }
 li.release .story{ background: #407aa5; color: white; }
 span.labels { color: #006633}
 span.estimate { border: 1px solid #ddd; background: white; padding: 0 3px;}
