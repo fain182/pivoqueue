@@ -58,6 +58,11 @@ post '/login' do
   redirect '/'
 end
 
+get '/logout' do
+  response.delete_cookie("apikey")
+  redirect '/'
+end
+
 get '/user/done/:id' do |arg|
   project, id = arg.split('^^')
   project = @projects.detect{|p| p.name == project}
