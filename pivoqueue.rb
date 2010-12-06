@@ -5,8 +5,6 @@ require 'sinatra'
 require 'haml'
 require 'pivotal-tracker'
 
-PivotalTracker::Client.token = IO.read('./token')
-
 class PivotalTracker::Story
   def has_tasks?
     self.tasks.all.length >0 rescue false
@@ -18,10 +16,22 @@ end
 
 before do
   content_type :html, 'charset' => 'utf-8'
-  @projects = PivotalTracker::Project.all
+end
+
+before '/user/*' do
+  unless request.cookies["apikey"].nil?
+    PivotalTracker::Client.token = request.cookies["apikey"]
+    @projects = PivotalTracker::Project.all
+  else
+    redirect '/login'
+  end
 end
 
 get '/' do
+  redirect '/user/stories'
+end
+
+get '/user/stories' do
   @stories = {}
   @empty_projects = []
   @projects.each do |project|
@@ -39,7 +49,16 @@ get '/' do
   haml :index
 end
 
-get '/done/:id' do |arg|
+get '/login' do
+  haml :login
+end
+
+post '/login' do
+  response.set_cookie("apikey", params['apikey'])
+  redirect '/'
+end
+
+get '/user/done/:id' do |arg|
   project, id = arg.split('^^')
   project = @projects.detect{|p| p.name == project}
   story = project.stories.find(id.to_i)
