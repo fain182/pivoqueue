@@ -54,7 +54,8 @@ get '/login' do
 end
 
 post '/login' do
-  response.set_cookie("apikey", params['apikey'])
+  expiration = Time.new + 60*60*24*365 
+  response.set_cookie("apikey", { :value=>params['apikey'], :expires=>expiration } )
   redirect '/'
 end
 
