@@ -1,4 +1,5 @@
 require 'head'
+require 'tag'
 
 class Page
   attr :head
@@ -12,9 +13,16 @@ class Page
   def add(element)
     @elements.push element
   end
+  def doctype
+    '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'+"\n"
+  end
+  def html_elements
+    @elements.inject(''){ |out,el| out += el.to_html}
+  end
   def to_html
-    doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
-    elements = @elements.inject(''){ |out,el| out += el.to_html}
-    doctype + "\n<html>\n#{@head.to_html}\n<body>#{elements}</body>\n</html>"
+    doctype + Tag.new('html') do
+      "\n"+@head.to_html+
+      Tag.new('body'){ html_elements }.to_html+"\n"
+    end.to_html
   end
 end

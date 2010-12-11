@@ -21,6 +21,6 @@ class Head
     @js.each do |url|
       content += "<script type=\"text/javascript\" src=\"#{url}\"></script>"
     end
-    "<head>"+content+"</head>"
+    "<head>"+content+"</head>\n"
   end
 end
