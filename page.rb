@@ -2,9 +2,12 @@ require 'head'
 
 class Page
   attr :head
-  def initialize
+  def initialize(&block)
     @head = Head.new
     @elements = []
+    if block_given?
+      instance_eval &block
+    end
   end
   def add(element)
     @elements.push element

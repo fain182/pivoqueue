@@ -1,8 +1,11 @@
 class Form
   attr_accessor :method
 
-  def initialize
+  def initialize(&block)
     @content = ''
+    if block_given?
+      instance_eval &block
+    end
   end
   def add_input( label, id, type="text")
     @content += "<label for=\"#{id}\">#{label}</label><input id=\"#{id}\" name=\"#{id}\" type=\"#{type}\">"

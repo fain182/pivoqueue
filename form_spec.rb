@@ -19,4 +19,10 @@ describe Form do
     form.add_button "Label"
     form.to_html.should == '<form><input type="submit" value="Label"></form>'
   end
+  it "can build form in a block" do
+    form_block = Form.new { add_button "Label" }
+    form = Form.new
+    form.add_button "Label"
+    form_block.to_html.should == form.to_html
+  end
 end

@@ -23,4 +23,10 @@ describe Page do
 </html>'
  
   end
+  it "accept a block to create page" do
+    page_block = Page.new { head.title="asd" }
+    page = Page.new
+    page.head.title = "asd"
+    page_block.to_html.should == page.to_html
+  end
 end

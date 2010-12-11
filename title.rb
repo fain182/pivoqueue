@@ -3,6 +3,6 @@ class Title
     @text = text
   end
   def to_html
-    '<H2>'+@text+'</H2>'
+    '<H1>'+@text+'</H1>'
   end
 end
