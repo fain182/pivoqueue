@@ -21,7 +21,6 @@ describe Page do
 <head></head>
 <body>'+Form.new.to_html+'</body>
 </html>'
- 
   end
   it "accept a block to create page" do
     page_block = Page.new { head.title="asd" }

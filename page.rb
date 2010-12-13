@@ -1,6 +1,12 @@
 require 'head'
 require 'tag'
 
+class String
+  def to_html
+    self
+  end
+end
+
 class Page
   attr :head
   def initialize(&block)
