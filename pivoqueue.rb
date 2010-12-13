@@ -5,6 +5,8 @@ require 'sinatra'
 require 'haml'
 require 'pivotal-tracker'
 
+require 'login_page'
+
 class PivotalTracker::Story
   def has_tasks?
     self.tasks.all.length >0 rescue false
@@ -50,7 +52,7 @@ get '/user/stories' do
 end
 
 get '/login' do
-  haml :login
+  LoginPage.new.to_html
 end
 
 post '/login' do
