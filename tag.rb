@@ -1,15 +1,20 @@
 class Tag
   def initialize(name, &block)
+    if name.include? '#'
+      name, tag_id = name.split '#'
+    end
     @name = name
+    @tag_id = tag_id
     @self_closing = ! block_given?
     @content = yield if block_given?
   end
 
   def to_html
-    if @self_closing
-      "<#{@name} />"
+    tag_begin = @tag_id ? "<#{@name} id=\"#{@tag_id}\"" : "<#{@name}"
+    if @self_closing 
+      tag_begin + " />"
     else
-      "<#{@name}>#{@content}</#{@name}>"
+      tag_begin + ">#{@content}</#{@name}>"
     end
   end
 end
