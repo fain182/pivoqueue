@@ -14,7 +14,7 @@ class Template
       head.charset = 'UTF-8'
       head.icon = 'favicon.ico'
       head.include_css('http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css')
-      head.include_css('stories.css')
+      head.include_css('style.css')
     end
     page.add Title.new(@title)
     page.add @content
