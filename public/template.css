@@ -1,0 +1,6 @@
+body { font-family: helvetica, arial, sans-serif; font-size: 10pt;}
+h1 { font-family: Lobster; font-size: 36pt; padding: 12pt 10pt }
+#container { width: 600px; margin: 10pt auto; border-left: 1px solid #ddd}
+#content { padding: 10pt}
+
+input {margin-left: 10pt;}

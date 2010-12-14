@@ -14,7 +14,8 @@ class Template
       head.charset = 'UTF-8'
       head.icon = 'favicon.ico'
       head.include_css('http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css')
-      head.include_css('style.css')
+      head.include_css('http://fonts.googleapis.com/css?family=Lobster')
+      head.include_css('template.css')
     end
     container = Tag.new('div#container') {}
     content = Tag.new('div#content') {}
