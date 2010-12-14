@@ -1,4 +1,5 @@
 class Tag
+  attr_accessor :content
   def initialize(name, &block)
     if name.include? '#'
       name, tag_id = name.split '#'

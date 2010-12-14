@@ -16,6 +16,10 @@ describe Tag do
     it "contains block between tags" do
       @tag.to_html.should == '<b>bold text</b>'
     end
+    it "can have content inserted after the creation" do
+      @tag.content ="inserted after"
+      @tag.to_html.should == '<b>inserted after</b>'
+    end
   end
   it "can have an id in tag name, like div#id" do
     tag = Tag.new('div#asd') {"inside"}

@@ -16,8 +16,12 @@ class Template
       head.include_css('http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css')
       head.include_css('style.css')
     end
-    page.add Title.new(@title)
-    page.add @content
+    container = Tag.new('div#container') {}
+    content = Tag.new('div#content') {}
+    content.content = @content.to_html
+    title = Title.new(@title)
+    container.content = title.to_html + content.to_html
+    page.add container
     page.to_html
   end
 end

@@ -1,23 +1,27 @@
 require 'template'
 
 describe Template do
+  before(:each) do
+    @template = Template.new
+    @test_string = 'TEST CONTENT'
+  end
   it "has a default page title" do
-    template = Template.new()
-    template.title.should == 'Pivoqueue'
+    @template.title.should == 'Pivoqueue'
   end
   it "can have a different title" do
-    template = Template.new()
-    template.title = 'altro'
-    template.title.should == 'altro'
+    @template.title = @test_string
+    @template.title.should == @test_string
   end
   it "has a content" do
-    template = Template.new()
-    template.content = 'asd'
-    template.content.should == 'asd'
+    @template.content = @test_string
+    @template.content.should == @test_string
   end
   it "shows the content in the html" do
-    template = Template.new()
-    template.content = "TEST CONTENT"
-    template.to_html.should be_include 'TEST CONTENT'
+    @template.content = @test_string
+    @template.to_html.should be_include @test_string
+  end
+  it "shows content and title in a container div" do
+    @template.content = @test_string
+    @template.to_html.should be_include "<div id=\"container\"><H1>Pivoqueue</H1><div id=\"content\">#{@test_string}</div></div>"
   end
 end
