@@ -8,4 +8,10 @@ describe LoginPage do
   it "has and apikey field" do
     @login.to_html.should be_include 'name="apikey"' 
   end
+  it "has a login button" do
+    @login.to_html.should be_include '<input type="submit" value="Login">'
+  end
+  it "has a link to pivotal tracker profile"  do
+    @login.to_html.should be_include '<a href="https://www.pivotaltracker.com/profile">'
+  end
 end
