@@ -8,6 +8,8 @@ a {color: #D95604; }
 input {margin-left: 10pt;}
 label { font-weight: bold; }
 
+/* element with a class */
+div.hint { color: #999; margin: 10pt 0 ; padding: 5pt 0; border-top: 1px solid #ddd}
 /* element with ID */
 #container { width: 600px; margin: 10pt auto; border-left: 1px solid #ddd}
 #navigation { margin: 5pt 10pt; color: #ddd; font-weight: bold;}
