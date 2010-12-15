@@ -10,4 +10,7 @@ label { font-weight: bold; }
 
 /* element with ID */
 #container { width: 600px; margin: 10pt auto; border-left: 1px solid #ddd}
+#navigation { margin: 5pt 10pt; color: #ddd; font-weight: bold;}
+#navigation a{ text-decoration: none; color: #777; font-weight: bold}
+#navigation a:hover { color: #d95604}
 #content { padding: 10pt}

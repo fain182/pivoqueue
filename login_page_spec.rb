@@ -12,6 +12,6 @@ describe LoginPage do
     @login.to_html.should be_include '<input type="submit" value="Login">'
   end
   it "has a link to pivotal tracker profile"  do
-    @login.to_html.should be_include '<a href="https://www.pivotaltracker.com/profile">'
+    @login.to_html.should be_include Link.new('profile').to('https://www.pivotaltracker.com/profile').to_html
   end
 end

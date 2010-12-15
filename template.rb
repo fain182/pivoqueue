@@ -1,11 +1,13 @@
 require 'page'
 require 'title'
+require 'navigation'
 
 class Template
   attr_accessor( :title, :content )
 
   def initialize
     @title = 'Pivoqueue'
+    @content = ''
   end
   
   def to_html
@@ -21,7 +23,8 @@ class Template
     content = Tag.new('div#content') {}
     content.content = @content.to_html
     title = Title.new(@title)
-    container.content = title.to_html + content.to_html
+    navigation = Navigation.new
+    container.content = title.to_html + navigation.to_html+content.to_html
     page.add container
     page.to_html
   end
