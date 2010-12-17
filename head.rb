@@ -1,4 +1,6 @@
-class Head
+require 'element'
+
+class Head <Element
   attr_accessor(:title, :icon, :charset)
   def initialize
     @js = []

@@ -1,4 +1,6 @@
-class Link
+require 'element'
+
+class Link < Element
   attr_accessor( :label, :url )
 
   def initialize(label)

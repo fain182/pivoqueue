@@ -1,4 +1,6 @@
-class Form
+require 'element'
+
+class Form < Element
   attr_accessor :method
 
   def initialize(&block)

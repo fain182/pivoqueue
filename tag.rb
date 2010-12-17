@@ -1,4 +1,6 @@
-class Tag
+require 'element'
+
+class Tag < Element
   attr_accessor :content
   def initialize(name, &block)
     if name.include? '#'

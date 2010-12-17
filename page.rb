@@ -1,13 +1,8 @@
+require 'element'
 require 'head'
 require 'tag'
 
-class String
-  def to_html
-    self
-  end
-end
-
-class Page
+class Page < Element
   attr :head
   def initialize(&block)
     @head = Head.new

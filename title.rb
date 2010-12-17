@@ -1,4 +1,6 @@
-class Title
+require 'element'
+
+class Title <Element
   def initialize text
     @text = text
   end

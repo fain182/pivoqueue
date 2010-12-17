@@ -10,6 +10,6 @@ describe Link do
     Link.new('label').url.should == '#'
   end
   it "can be translated in html" do
-    @link.to_html.should == '<a href="url">label</a>'
+    @link.should == '<a href="url">label</a>'
   end
 end

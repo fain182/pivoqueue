@@ -2,30 +2,28 @@ require 'page'
 require 'form'
 
 describe Page do
+  before(:each) { @page = Page.new}
   it "has a head" do
-    page = Page.new
-    page.head.should be_a_kind_of Head
+    @page.head.should be_a_kind_of Head
   end
   it "contains doctype and html skeleton" do
-    Page.new.to_html.should == '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    @page.should == '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head></head>
 <body></body>
 </html>'
   end
   it "can contain some html in the body" do
-    page = Page.new
-    page.add Form.new
-    page.to_html.should == '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    @page.add Form.new
+    @page.should == "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
 <html>
 <head></head>
-<body>'+Form.new.to_html+'</body>
-</html>'
+<body>#{Form.new}</body>
+</html>"
   end
   it "accept a block to create page" do
     page_block = Page.new { head.title="asd" }
-    page = Page.new
-    page.head.title = "asd"
-    page_block.to_html.should == page.to_html
+    @page.head.title = "asd"
+    page_block.should == @page
   end
 end

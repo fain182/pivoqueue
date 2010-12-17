@@ -1,6 +1,7 @@
+require 'element'
 require 'tag'
 
-class Hint
+class Hint <Element
   def initialize( message )
     @message = message
   end

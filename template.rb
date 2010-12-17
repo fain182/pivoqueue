@@ -1,8 +1,9 @@
 require 'page'
 require 'title'
+require 'element'
 require 'navigation'
 
-class Template
+class Template < Element
   attr_accessor( :title, :content )
 
   def initialize
