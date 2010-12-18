@@ -1,4 +1,4 @@
-require 'page'
+require 'html_skeleton'
 require 'title'
 require 'element'
 require 'navigation'
@@ -6,13 +6,14 @@ require 'navigation'
 class Template < Element
   attr_accessor( :title, :content )
 
-  def initialize
+  def initialize(user)
     @title = 'Pivoqueue'
     @content = ''
+    @user = user
   end
   
   def to_html
-    page = Page.new do
+    html_skeleton = HtmlSkeleton.new do
       head.title = 'pivoqueue - login'
       head.charset = 'UTF-8'
       head.icon = 'favicon.ico'
@@ -24,9 +25,9 @@ class Template < Element
     content = Tag.new('div#content') {}
     content.content = @content.to_html
     title = Title.new(@title)
-    navigation = Navigation.new
+    navigation = Navigation.new(@user)
     container.content = title.to_html + navigation.to_html+content.to_html
-    page.add container
-    page.to_html
+    html_skeleton.add container
+    html_skeleton.to_html
   end
 end

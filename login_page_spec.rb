@@ -1,7 +1,10 @@
 require 'login_page'
 
 describe LoginPage do
-  before(:each) { @login = LoginPage.new }
+  before(:each) do
+    user = mock(Object, :logged? => false)
+    @login = LoginPage.new user
+  end
   it "contains a form" do
     @login.should be_include '</form>'
   end

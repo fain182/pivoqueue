@@ -5,6 +5,7 @@ require 'sinatra'
 require 'haml'
 require 'pivotal-tracker'
 
+require 'user'
 require 'login_page'
 
 class PivotalTracker::Story
@@ -18,6 +19,7 @@ end
 
 before do
   content_type :html, 'charset' => 'utf-8'
+  @user = User.new request.cookies
 end
 
 before '/user/*' do
@@ -52,7 +54,7 @@ get '/user/stories' do
 end
 
 get '/login' do
-  LoginPage.new.to_html
+  LoginPage.new(@user).to_html
 end
 
 post '/login' do

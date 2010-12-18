@@ -4,8 +4,11 @@ require 'element'
 require 'template'
 
 class LoginPage < Element
+  def initialize(user)
+    @user = user
+  end
   def to_html
-    template = Template.new
+    template = Template.new(@user)
     login_form = Form.new do
       add_input ' Your API key', 'apikey', 'password'
       add_button 'Login'

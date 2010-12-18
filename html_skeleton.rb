@@ -3,7 +3,7 @@ require 'doctype'
 require 'head'
 require 'tag'
 
-class Page < Element
+class HtmlSkeleton < Element
   attr :head
   def initialize(&block)
     @head = Head.new
