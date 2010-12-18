@@ -1,4 +1,5 @@
 require 'page'
+require 'doctype'
 require 'form'
 
 describe Page do
@@ -7,19 +8,11 @@ describe Page do
     @page.head.should be_a_kind_of Head
   end
   it "contains doctype and html skeleton" do
-    @page.should == '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head></head>
-<body></body>
-</html>'
+    @page.should == "#{Doctype.new}<html>\n<head></head>\n<body></body>\n</html>"
   end
   it "can contain some html in the body" do
     @page.add Form.new
-    @page.should == "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
-<html>
-<head></head>
-<body>#{Form.new}</body>
-</html>"
+    @page.should == "#{Doctype.new}<html>\n<head></head>\n<body>#{Form.new}</body>\n</html>"
   end
   it "accept a block to create page" do
     page_block = Page.new { head.title="asd" }

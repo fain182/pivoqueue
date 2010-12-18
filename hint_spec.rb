@@ -6,12 +6,12 @@ describe Hint do
     @hint = Hint.new( @message )
   end
   it "should include 'Hint:' in bold" do
-    @hint.to_html.should be_include '<b>Hint:</b>'
+    @hint.should be_include '<b>Hint:</b>'
   end
   it "should be contained in a div with class hint" do
-    @hint.to_html.should be_include '<div class="hint">'
+    @hint.should be_include '<div class="hint">'
   end
   it "has a message that should be showed" do
-    @hint.to_html.should be_include @message
+    @hint.should be_include @message
   end
 end

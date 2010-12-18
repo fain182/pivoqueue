@@ -1,8 +1,9 @@
 require 'form'
 require 'hint'
+require 'element'
 require 'template'
 
-class LoginPage
+class LoginPage < Element
   def to_html
     template = Template.new
     login_form = Form.new do

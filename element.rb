@@ -14,4 +14,7 @@ class Element
   def to_s
     self.to_html
   end
+  def include?( what )
+    to_s.include? what
+  end
 end
