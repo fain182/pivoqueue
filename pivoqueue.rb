@@ -19,7 +19,7 @@ end
 
 before do
   content_type :html, 'charset' => 'utf-8'
-  @user = User.new request.cookies
+  @user = User.new request
 end
 
 before '/user/*' do

@@ -1,8 +1,8 @@
 class User
-  def initialize(cookies)
-    @cookies = cookies
+  def initialize(request)
+    @request = request
   end
   def logged?
-    @cookies.has_key? 'apikeys'
+    @request.cookies.has_key? 'apikey'
   end
 end

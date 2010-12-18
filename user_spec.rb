@@ -3,7 +3,8 @@ require 'user'
 describe User do
   context "has no cookie" do
     before(:each) do
-      @user = User.new({})
+      request = mock(Object, :cookies=>{})
+      @user = User.new(request)
     end
     it "makes logged? return false" do
       @user.should_not be_logged
@@ -11,7 +12,8 @@ describe User do
   end
   context "has a cookie named apikeys" do
     before(:each) do
-      @user = User.new({'apikeys'=>'aaaaaa'})
+      request = mock(Object, :cookies=>{'apikey'=>'aaa'})
+      @user = User.new(request)
     end
     it "makes logged? return true" do
       @user.should be_logged
