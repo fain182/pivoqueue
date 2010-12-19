@@ -1,21 +1,9 @@
-require 'pp'
 require 'rubygems'
-
 require 'sinatra'
-require 'haml'
-require 'pivotal-tracker'
 
 require 'user'
 require 'login_page'
-
-class PivotalTracker::Story
-  def has_tasks?
-    self.tasks.all.length >0 rescue false
-  end
-  def is_complete?
-    self.current_state == 'accepted'
-  end
-end
+require 'stories_page'
 
 before do
   content_type :html, 'charset' => 'utf-8'
@@ -23,12 +11,7 @@ before do
 end
 
 before '/user/*' do
-  unless request.cookies["apikey"].nil?
-    PivotalTracker::Client.token = request.cookies["apikey"]
-    @projects = PivotalTracker::Project.all
-  else
-    redirect '/login'
-  end
+  redirect '/login' unless request.cookies.has_key? 'apikey'
 end
 
 get '/' do
@@ -36,21 +19,7 @@ get '/' do
 end
 
 get '/user/stories' do
-  @stories = {}
-  @empty_projects = []
-  @projects.each do |project|
-    @stories[project.name] = []
-    iteration = PivotalTracker::Iteration.current(project)
-    if iteration.stories.empty? 
-      @empty_projects.push project.name
-    end
-    iteration.stories.each do |story|
-      unless story.is_complete?
-        @stories[project.name].push story
-      end
-    end
-  end
-  haml :index
+  StoriesPage.new(@user).to_html
 end
 
 get '/login' do
@@ -66,12 +35,4 @@ end
 get '/logout' do
   response.delete_cookie("apikey")
   redirect '/'
-end
-
-get '/user/done/:id' do |arg|
-  project, id = arg.split('^^')
-  project = @projects.detect{|p| p.name == project}
-  story = project.stories.find(id.to_i)
-  story.update({'current_state' => 'accepted'})
-  id
 end

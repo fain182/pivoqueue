@@ -16,10 +16,10 @@ class Template < Element
     html_skeleton = HtmlSkeleton.new do
       head.title = 'pivoqueue - login'
       head.charset = 'UTF-8'
-      head.icon = 'favicon.ico'
+      head.icon = '/favicon.ico'
       head.include_css('http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css')
       head.include_css('http://fonts.googleapis.com/css?family=Lobster')
-      head.include_css('template.css')
+      head.include_css('/template.css')
     end
     container = Tag.new('div#container') {}
     content = Tag.new('div#content') {}
