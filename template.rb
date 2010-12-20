@@ -14,7 +14,7 @@ class Template < Element
   
   def to_html
     html_skeleton = HtmlSkeleton.new do
-      head.title = 'pivoqueue - login'
+      head.title = 'Pivoqueue' 
       head.charset = 'UTF-8'
       head.icon = '/favicon.ico'
       head.include_css('http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css')
