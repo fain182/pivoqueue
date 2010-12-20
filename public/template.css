@@ -19,10 +19,10 @@ div.error a{ background-color:white; color: black; height: 100%; float:right; pa
 #navigation { margin: 5pt 10pt; color: #ddd; font-weight: bold;}
 #navigation a{ text-decoration: none; color: #777; font-weight: bold}
 #navigation a:hover { color: #d95604}
-#content { padding: 10pt}
+#content { padding: 10pt 0 10pt 10pt}
 
 /* stories */
 #iteration { float:right; width: 320px;}
-div.story { width: 300px; border: 1px solid #ddd; padding: 3pt; margin: 0 0 3pt 0;}
+div.story { width: 308px; border: 1px solid #ddd; padding: 5px; margin: 0 0 3pt 0;}
 div.story img.type { float:right; }
 div.story span.project { font-weight: bold; color: #fff; background: #777; padding: 1pt 3pt; margin: 0 3pt 0 0; -moz-border-radius: 3px; border-radius: 3px; }
