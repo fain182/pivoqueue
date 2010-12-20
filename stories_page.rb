@@ -6,22 +6,18 @@ require 'iteration'
 class StoriesPage < Element
   def initialize(user)
     @user = user
-    @stories = get_stories
   end
-  def get_stories
+  def get_iteration_html
     begin
-      Iteration.new(@user).stories
+      Iteration.new(@user).to_html
     rescue RestClient::Request::Unauthorized
-      false
+      error = Error.new('API key is not valid.')
+      error.solution('Return to login', '/login')
     end
   end
   def to_html
     template = Template.new(@user)
-    if @stories == false
-      error = Error.new('API key is not valid.')
-      error.solution('Return to login', '/login')
-      template.content = error 
-    end
+    template.content = get_iteration_html
     template.to_html
   end
 end

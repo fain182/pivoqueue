@@ -24,4 +24,14 @@ describe Iteration do
     stories = stories.map{|s| s.name }
     @iteration.stories.map{|s| s.name} == stories
   end
+  it "can select incomplete stories" do
+    expected_stories = @iteration.stories.select do |story|
+      story.current_state != 'accepted'
+    end
+    @iteration.stories_to_do.map{|s| s.name}.should == expected_stories.map{|s|s.name}
+  end
+  it "show stories in html" do
+    stories_to_do = @iteration.stories_to_do
+    @iteration.should == stories_to_do.map{|s| s.to_html}.join 
+  end
 end
