@@ -1,6 +1,7 @@
 /* tags */
-body { font-family: helvetica, arial, sans-serif; font-size: 10pt;}
+body { font-family: verdana, arial, sans-serif; font-size: 10pt;}
 h1 { font-family: Lobster; font-size: 36pt; padding: 12pt 10pt; border-bottom: 1px solid #ddd}
+h4 { font-size: 18pt; }
 p { line-height: 12pt; margin-top: 5pt;}
 a {color: #D95604; }
 
@@ -8,13 +9,20 @@ a {color: #D95604; }
 input {margin-left: 10pt;}
 label { font-weight: bold; }
 
-/* element with a class */
+/* common element with a class */
 div.hint { color: #999; margin: 10pt 0 ; padding: 5pt 0; border-top: 1px solid #ddd}
 div.error { background: #a80000; padding: 5pt; color: white; font-size: 14pt; -moz-border-radius: 5px;border-radius: 5px;}
 div.error a{ background-color:white; color: black; height: 100%; float:right; padding:0 6pt;text-decoration:none; display:block;-moz-border-radius: 5px;border-radius: 5px;}
-/* element with ID */
+
+/* common element with ID */
 #container { width: 600px; margin: 10pt auto; border-left: 1px solid #ddd}
 #navigation { margin: 5pt 10pt; color: #ddd; font-weight: bold;}
 #navigation a{ text-decoration: none; color: #777; font-weight: bold}
 #navigation a:hover { color: #d95604}
 #content { padding: 10pt}
+
+/* stories */
+#iteration { float:right; width: 320px;}
+div.story { width: 300px; border: 1px solid #ddd; padding: 3pt; margin: 0 0 3pt 0;}
+div.story img.type { float:right; }
+div.story span.project { font-weight: bold; color: #fff; background: #777; padding: 1pt 3pt; margin: 0 3pt 0 0; -moz-border-radius: 3px; border-radius: 3px; }

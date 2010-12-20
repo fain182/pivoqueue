@@ -1,5 +1,6 @@
 require 'story'
 require 'element'
+require 'tag'
 
 require 'rubygems'
 require 'pivotal-tracker'
@@ -15,9 +16,9 @@ class Iteration < Element
     all = []
     projects.each do |project|
       project_iteration = PivotalTracker::Iteration.current(project)
-      all.push *project_iteration.stories
+      all.push *project_iteration.stories.map{|s| Story.new(s, project.name)}
     end
-    all.map{|pv_story|  Story.new(pv_story)}
+    all
   end
   def stories_to_do
     stories.select{ |story| story.complete? == false }
@@ -26,6 +27,8 @@ class Iteration < Element
     stories = stories_to_do.map do |story|
       story.to_html
     end
-    stories.join
+    subtitle = Tag.new('h4'){'Current iteration'}
+    div = Tag.new('div#iteration'){ subtitle.to_html + stories.join }
+    div.to_html + '<br style="clear:both;" />'
   end
 end

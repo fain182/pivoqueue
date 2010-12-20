@@ -30,8 +30,8 @@ describe Iteration do
     end
     @iteration.stories_to_do.map{|s| s.name}.should == expected_stories.map{|s|s.name}
   end
-  it "show stories in html" do
+  it "should include stories in html" do
     stories_to_do = @iteration.stories_to_do
-    @iteration.should == stories_to_do.map{|s| s.to_html}.join 
+    @iteration.should be_include stories_to_do.map{|s| s.to_html}.join 
   end
 end
