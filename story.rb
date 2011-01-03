@@ -1,5 +1,6 @@
 require 'tag'
 require 'element'
+require 'story_type_icon'
 
 class Story < Element
   def initialize(pv_story, project)
@@ -16,11 +17,10 @@ class Story < Element
     @pv_story.current_state == 'accepted'
   end
   def to_html
-    icon = '<img src="/icons/'+self.story_type+'.png" class="type" />'
-    project = Tag.new('span.project') { }
-    project.content = @project
-    div = Tag.new('div.story') {}
-    div.content= icon + project.to_html + name
-    div.to_html
+    icon = StoryTypeIcon.new(self.story_type)
+    project = Tag.new('span.project') { @project }
+    Tag.new('div.story') {
+      [icon, project, name].join
+    }.to_html
   end
 end

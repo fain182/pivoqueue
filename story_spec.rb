@@ -8,16 +8,16 @@ describe Story do
   end
   context "in html" do
     before(:each)do
-      pv_story = mock(Object, 
+      @pv_story = mock(Object, 
               :name => 'new story',
               :story_type=>'bug')
-      @story = Story.new(pv_story, 'ppp')
+      @story = Story.new(@pv_story, 'ppp')
     end
     it "shows name" do
-      @story.should be_include 'new story'
+      @story.should be_include @pv_story.name
     end
-    it "shuld have icon of the type" do
-      @story.should be_include '<img src="/icons/bug.png" class="type" />'
+    it "includes icon of the type" do
+      @story.should be_include StoryTypeIcon.new(@pv_story.story_type).to_html
     end
     it "should show project name" do
       @story.should be_include 'ppp'
